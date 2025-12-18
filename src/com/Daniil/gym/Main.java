@@ -1,4 +1,4 @@
-package com.Daniil.bank;
+package com.Daniil.gym;
 
 public class Main {
     public static void main(String[] args) {
