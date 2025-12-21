@@ -2,8 +2,31 @@ package com.Daniil.gym;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("This is my first Project on Java");
-        System.out.println("The theme of my project is Gym system");
-        System.out.println("So here I will try to create a gym management system");
+        Member member = new Member("Daniil", "Kim");
+        System.out.println(member);
+
+        member.buyMembership();
+        System.out.println(member);
+
+        member.removeMembership();
+        System.out.println(member);
+
+
+        Trainer trainer = new Trainer("Daniil", "Kim", 2, 10);
+        System.out.println(trainer);
+
+        trainer.addTrainedMember();
+        System.out.println(trainer);
+
+        System.out.println(trainer.isExperienced());
+
+
+        Equipment equipment = new Equipment("Weight", "30kg", "strength", 10);
+        System.out.println(equipment);
+
+        equipment.addQuantity(2);
+        System.out.println(equipment);
+
+        System.out.println(equipment.isAvailable());
     }
 }
