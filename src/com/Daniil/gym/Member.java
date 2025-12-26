@@ -11,10 +11,18 @@ public class Member {
         id = id_gen++;
     }
 
-    public Member(String name, String surname){
+    public Member(String name, String surname, boolean activeMembership){
         this();
+        this.activeMembership = activeMembership;
         this.name = name;
         this.surname = surname;
+    }
+
+    public int  getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName(){

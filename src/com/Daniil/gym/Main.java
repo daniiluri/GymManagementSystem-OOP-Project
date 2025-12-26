@@ -2,7 +2,7 @@ package com.Daniil.gym;
 
 public class Main {
     public static void main(String[] args) {
-        Member member = new Member("Daniil", "Kim");
+        Member member = new Member("Daniil", "Kim", false);
         System.out.println(member);
 
         member.buyMembership();
