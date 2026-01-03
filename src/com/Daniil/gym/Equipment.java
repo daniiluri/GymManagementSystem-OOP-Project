@@ -6,44 +6,72 @@ public class Equipment {
     private String category;
     private int quantity;
 
+    public Equipment() {
+        this.name = "Unknown";
+        this.description = "Unknown";
+        this.category = "Unknown";
+        this.quantity = 0;
+    }
 
     public Equipment(String name, String description, String category, int quantity){
-        this.name = name;
-        this.description = description;
-        this.category = category;
-        this.quantity = quantity;
+        this();
+        setName(name);
+        setDescription(description);
+        setCategory(category);
+        setQuantity(quantity);
+    }
+
+    public void setName(String name){
+        if (name != null && !name.trim().isEmpty()){
+            this.name = name;
+        }
+        else {
+            System.out.println("Warning: Name cannot be empty!");
+        }
     }
 
     public String getName(){
         return name;
     }
 
-    public void setName(String name){
-        this.name = name;
+    public void setDescription(String description){
+        if (description != null && !description.trim().isEmpty()){
+            this.description = description;
+        }
+        else {
+            System.out.println("Warning: Description cannot be empty!");
+        }
     }
 
     public String getDescription(){
         return description;
     }
 
-    public void setDescription(String description){
-        this.description = description;
+    public void setCategory(String category){
+        if  (category != null && !category.trim().isEmpty()){
+            this.category = category;
+        }
+        else {
+            System.out.println("Warning: Category cannot be empty!");
+        }
     }
 
     public String getCategory(){
         return category;
     }
 
-    public void setCategory(String category){
-        this.category = category;
+    public void setQuantity(int quantity){
+        if (quantity >= 0){
+            this.quantity = quantity;
+        }
+        else {
+            System.out.println("Quantity cannot be negative");
+            this.quantity = 0;
+        }
     }
 
     public int getQuantity(){
         return quantity;
-    }
-
-    public void setQuantity(int quantity){
-        this.quantity = quantity;
     }
 
     public boolean isAvailable(){
@@ -51,7 +79,12 @@ public class Equipment {
     }
 
     public void addQuantity(int quantity){
-        this.quantity += quantity;
+        if  (quantity > 0){
+            this.quantity += quantity;
+        }
+        else  {
+            System.out.println("Quantity must be positive");
+        }
     }
 
     @Override

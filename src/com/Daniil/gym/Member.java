@@ -2,20 +2,22 @@ package com.Daniil.gym;
 
 public class Member {
     private int id;
-    private static int id_gen;
+    private static int id_gen = 1;
     private String name;
     private String surname;
     private boolean activeMembership;
 
     public Member(){
         id = id_gen++;
+        this.name = "Unknown";
+        this.surname = "Unknown";
     }
 
     public Member(String name, String surname, boolean activeMembership){
         this();
         this.activeMembership = activeMembership;
-        this.name = name;
-        this.surname = surname;
+        setName(name);
+        setSurname(surname);
     }
 
     public int  getId() {
@@ -25,28 +27,40 @@ public class Member {
         this.id = id;
     }
 
+
+    public void setName(String name){
+        if (name != null && !name.trim().isEmpty()){
+            this.name = name;
+        }
+        else{
+            System.out.println("Warning: Name cannot be empty!");
+        }
+    }
+
     public String getName(){
         return name;
     }
 
-    public void setName(String name){
-        this.name = name;
+
+    public void setSurname(String surname){
+        if (surname != null && !surname.trim().isEmpty()){
+            this.surname = surname;
+        }
+        else {
+            System.out.println("Warning: Surname cannot be empty!");
+        }
     }
 
     public String getSurname(){
         return surname;
     }
 
-    public void setSurname(String surname){
-        this.surname = surname;
+    public void setActiveMembership(boolean activeMembership){
+        this.activeMembership = activeMembership;
     }
 
     public boolean getActiveMembership(){
         return activeMembership;
-    }
-
-    public void setActiveMembership(boolean activeMembership){
-        this.activeMembership = activeMembership;
     }
 
     public void buyMembership(){
@@ -70,10 +84,10 @@ public class Member {
     @Override
     public String toString(){
         if (activeMembership){
-            return id + " " + name + " " + surname + " have an active membership";
+            return id + " " + name + " " + surname + " with membership";
         }
         else{
-            return id + " " + name + " " + surname + " have no active membership";
+            return id + " " + name + " " + surname + " without membership";
         }
     }
 }
