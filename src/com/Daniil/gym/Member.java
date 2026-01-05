@@ -1,6 +1,6 @@
 package com.Daniil.gym;
 
-public class Member {
+public class Member extends Person{
     private int id;
     private static int id_gen = 1;
     private String name;
@@ -8,51 +8,12 @@ public class Member {
     private boolean activeMembership;
 
     public Member(){
-        id = id_gen++;
-        this.name = "Unknown";
-        this.surname = "Unknown";
+        super();
     }
 
     public Member(String name, String surname, boolean activeMembership){
-        this();
+        super(name, surname);
         this.activeMembership = activeMembership;
-        setName(name);
-        setSurname(surname);
-    }
-
-    public int  getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-
-
-    public void setName(String name){
-        if (name != null && !name.trim().isEmpty()){
-            this.name = name;
-        }
-        else{
-            System.out.println("Warning: Name cannot be empty!");
-        }
-    }
-
-    public String getName(){
-        return name;
-    }
-
-
-    public void setSurname(String surname){
-        if (surname != null && !surname.trim().isEmpty()){
-            this.surname = surname;
-        }
-        else {
-            System.out.println("Warning: Surname cannot be empty!");
-        }
-    }
-
-    public String getSurname(){
-        return surname;
     }
 
     public void setActiveMembership(boolean activeMembership){
