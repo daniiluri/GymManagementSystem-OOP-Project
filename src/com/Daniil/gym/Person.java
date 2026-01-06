@@ -1,18 +1,24 @@
 package com.Daniil.gym;
 
 public class Person {
+    protected int personId;
     protected String name;
     protected String surname;
+    protected int age;
 
-    public Person(){
-        this.name = "Unknown";
-        this.surname = "Unknown";
-    }
-
-    public Person(String name, String surname) {
-        this();
+    public Person(int personId, String name, String surname, int age) {
+        setPersonId(personId);
         setName(name);
         setSurname(surname);
+        setAge(age);
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
+    public int getPersonId() {
+        return personId;
     }
 
     public void  setName(String name) {
@@ -21,6 +27,7 @@ public class Person {
         }
         else{
             System.out.println("Warning: Name cannot be empty!");
+            this.name = "Unknown";
         }
     }
 
@@ -34,10 +41,47 @@ public class Person {
         }
         else {
             System.out.println("Warning: Surname cannot be empty!");
+            this.surname = "Unknown";
         }
     }
 
     public String getSurname() {
         return surname;
+    }
+
+    public void setAge(int age) {
+        if  (age >= 0) {
+            this.age = age;
+        }
+        else {
+            System.out.println("Warning: Invalid age");
+            this.age = 0;
+        }
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void work() {
+        System.out.println("Working...");
+    }
+
+    public String getRole() {
+        return "Person";
+    }
+
+    public boolean isAdult(){
+        if (age >= 18) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return personId + " " + name + " " + surname + " " + age + " y.o.";
     }
 }

@@ -1,18 +1,13 @@
 package com.Daniil.gym;
 
 public class Member extends Person{
-    private int id;
-    private static int id_gen = 1;
-    private String name;
-    private String surname;
+    private int visitCount;
     private boolean activeMembership;
 
-    public Member(){
-        super();
-    }
 
-    public Member(String name, String surname, boolean activeMembership){
-        super(name, surname);
+    public Member(int personId, String name, String surname, int age, int visitCount, boolean activeMembership){
+        super(personId, name, surname, age);
+        setVisitCount(visitCount);
         this.activeMembership = activeMembership;
     }
 
@@ -22,6 +17,37 @@ public class Member extends Person{
 
     public boolean getActiveMembership(){
         return activeMembership;
+    }
+
+    public void setVisitCount(int visitCount){
+        if (visitCount >= 0){
+            this.visitCount = visitCount;
+        }
+        else {
+            System.out.println("Invalid visit count");
+            this.visitCount = 0;
+        }
+    }
+
+    public int getVisitCount(){
+        return visitCount;
+    }
+
+    @Override
+    public void work() {
+        System.out.println("Doing exercises...");
+    }
+
+    @Override
+    public String getRole() {
+        return "Member";
+    }
+
+    public boolean isRegular() {
+        if (visitCount > 50) {
+            return true;
+        }
+        return false;
     }
 
     public void buyMembership(){
@@ -45,10 +71,10 @@ public class Member extends Person{
     @Override
     public String toString(){
         if (activeMembership){
-            return id + " " + name + " " + surname + " with membership";
+            return personId + " " + name + " " + surname + " " + age + " y.o." + ", Visit count: " + visitCount + " with membership";
         }
         else{
-            return id + " " + name + " " + surname + " without membership";
+            return personId + " " + name + " " + surname + " " + age + " y.o." + ", Visit count: " + visitCount + " without membership";
         }
     }
 }
