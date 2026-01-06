@@ -6,6 +6,8 @@ public class Person {
     protected String surname;
     protected int age;
 
+
+    // Constructor of superclass
     public Person(int personId, String name, String surname, int age) {
         setPersonId(personId);
         setName(name);
@@ -13,6 +15,8 @@ public class Person {
         setAge(age);
     }
 
+
+    //Getters and Setters of superclass
     public void setPersonId(int personId) {
         this.personId = personId;
     }
@@ -63,6 +67,8 @@ public class Person {
         return age;
     }
 
+
+    // Methods to Override
     public void work() {
         System.out.println("Working...");
     }

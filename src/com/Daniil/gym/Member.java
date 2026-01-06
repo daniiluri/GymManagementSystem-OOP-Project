@@ -5,12 +5,15 @@ public class Member extends Person{
     private boolean activeMembership;
 
 
+    //Constructor
     public Member(int personId, String name, String surname, int age, int visitCount, boolean activeMembership){
         super(personId, name, surname, age);
         setVisitCount(visitCount);
         this.activeMembership = activeMembership;
     }
 
+
+    //Getters and setters of subclass
     public void setActiveMembership(boolean activeMembership){
         this.activeMembership = activeMembership;
     }
@@ -33,6 +36,8 @@ public class Member extends Person{
         return visitCount;
     }
 
+
+    // Overriden methods
     @Override
     public void work() {
         System.out.println("Doing exercises...");
@@ -43,6 +48,8 @@ public class Member extends Person{
         return "Member";
     }
 
+
+    // Methods of subclass
     public boolean isRegular() {
         if (visitCount > 50) {
             return true;

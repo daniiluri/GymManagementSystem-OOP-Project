@@ -4,12 +4,16 @@ public class Trainer extends Person{
     private int workExperience;
     private int trainedMembersCount;
 
+
+    // Constructor
     public Trainer(int personId, String name, String surname, int age, int workExperience, int trainedMembersCount){
         super(personId, name, surname, age);
         setWorkExperience(workExperience);
         setTrainedMembersCount(trainedMembersCount);
     }
 
+
+    //Getters and Setters
     public void setWorkExperience(int workExperience){
         if (workExperience >= 0){
             this.workExperience = workExperience;
@@ -38,6 +42,8 @@ public class Trainer extends Person{
         return trainedMembersCount;
     }
 
+
+    // Overriden methods of subclass
     @Override
     public void work() {
         System.out.println("Training people...");
@@ -49,6 +55,7 @@ public class Trainer extends Person{
     }
 
 
+    // Methods of subclass
     public void addTrainedMember(){
         trainedMembersCount++;
     }

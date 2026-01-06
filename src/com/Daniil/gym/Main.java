@@ -70,7 +70,7 @@ public class Main {
         System.out.println("0. Exit");
         System.out.println("========================================");
         System.out.print("Enter your choice: ");
-    }
+    } 
 
     private static void addMember() {
         System.out.println("Enter Member id");
