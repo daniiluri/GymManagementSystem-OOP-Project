@@ -1,6 +1,6 @@
 package com.Daniil.gym;
 
-public class Person {
+public abstract class Person {
     protected int personId;
     protected String name;
     protected String surname;
@@ -69,7 +69,7 @@ public class Person {
 
 
     // Methods to Override
-    public void work() {
+    abstract void work() {
         System.out.println("Working...");
     }
 
