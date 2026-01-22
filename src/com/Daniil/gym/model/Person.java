@@ -1,6 +1,6 @@
 package com.Daniil.gym.model;
 
-public abstract class Person {
+public abstract class Person implements Live {
     protected int personId;
     protected String name;
     protected String surname;
@@ -15,8 +15,7 @@ public abstract class Person {
         setAge(age);
     }
 
-
-    //Getters and Setters of superclass
+    //Getters and Setters with validation
     public void setPersonId(int personId) {
         if (personId < 0) {
             throw new IllegalArgumentException("Person ID cannot be negative");
@@ -33,7 +32,7 @@ public abstract class Person {
             this.name = name;
         }
         else{
-            System.out.println("Name cannot be empty!");
+            throw new IllegalArgumentException("Name cannot be empty");
         }
     }
 
@@ -73,7 +72,18 @@ public abstract class Person {
 
     public abstract String getRole();
 
-    // Method
+    //Interface implementation
+    @Override
+    public void sleep() {
+        System.out.println("Sleeping");
+    }
+
+    @Override
+    public void walk() {
+        System.out.println("Walking");
+    }
+
+    // Methods
     public boolean isAdult(){
         if (age >= 18) {
             return true;

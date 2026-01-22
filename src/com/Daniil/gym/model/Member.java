@@ -13,7 +13,7 @@ public class Member extends Person {
     }
 
 
-    //Getters and setters of subclass
+    //Getters and setters of subclass with validation
     public void setActiveMembership(boolean activeMembership){
         this.activeMembership = activeMembership;
     }
@@ -36,7 +36,7 @@ public class Member extends Person {
     }
 
 
-    // Overridden methods
+    // Overridden methods of abstract class
     @Override
     public void work() {
         System.out.println("Doing exercises...");

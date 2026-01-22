@@ -41,7 +41,7 @@ public class Trainer extends Person {
     }
 
 
-    // Overridden methods of subclass
+    // Overridden methods of abstract class
     @Override
     public void work() {
         System.out.println("Training people...");

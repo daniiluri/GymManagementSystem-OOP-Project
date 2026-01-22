@@ -17,10 +17,10 @@ public class GymMenu implements Menu {
         System.out.println("\n========================================");
         System.out.println(" RESTAURANT MANAGEMENT SYSTEM");
         System.out.println("========================================");
-        System.out.println("1. Add Chef");
-        System.out.println("2. Add Waiter");
-        System.out.println("3. View All Staff");
-        System.out.println("4. Make All Staff Work (Polymorphism Demo)");
+        System.out.println("1. Add Trainer");
+        System.out.println("2. Add Member");
+        System.out.println("3. View All People");
+        System.out.println("4. Make All People Work (Polymorphism Demo)");
         System.out.println("0. Exit");
         System.out.println("========================================");
     }
@@ -52,63 +52,70 @@ public class GymMenu implements Menu {
     }
 
     private void addTrainer() {
-        System.out.println("\n--- ADD TRAINER ---");
+        try {
+            System.out.println("\n--- ADD TRAINER ---");
 
-        System.out.print("Enter Person ID: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+            System.out.print("Enter Person ID: ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
+            System.out.print("Enter name: ");
+            String name = scanner.nextLine();
 
-        System.out.print("Enter surname: ");
-        String surname = scanner.nextLine();
+            System.out.print("Enter surname: ");
+            String surname = scanner.nextLine();
 
-        System.out.print("Enter age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine();
+            System.out.print("Enter age: ");
+            int age = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("Enter work experience: ");
-        int workExperience = scanner.nextInt();
-        scanner.nextLine();
+            System.out.print("Enter work experience: ");
+            int workExperience = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("Enter trained members count: ");
-        int trainedMembersCount = scanner.nextInt();
-        scanner.nextLine();
+            System.out.print("Enter trained members count: ");
+            int trainedMembersCount = scanner.nextInt();
+            scanner.nextLine();
 
-        Person person = new Trainer(id, name, surname, age,  workExperience, trainedMembersCount);
-        allPeople.add(person);
-        System.out.println("\n Trainer added successfully!");
+            Trainer trainer = new Trainer(id, name, surname, age,  workExperience, trainedMembersCount);
+            allPeople.add(trainer);
+            System.out.println("\n Trainer added successfully!");
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     private void addMember() {
-        System.out.println("Enter Member id");
-        int personId = scanner.nextInt();
-        scanner.nextLine();
+        try {
+            System.out.println("Enter Member id");
+            int personId = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.println("Enter Member name");
-        String name = scanner.nextLine();
+            System.out.println("Enter Member name");
+            String name = scanner.nextLine();
 
-        System.out.println("Enter Member surname");
-        String surname = scanner.nextLine();
+            System.out.println("Enter Member surname");
+            String surname = scanner.nextLine();
 
-        System.out.println("Enter Member age");
-        int age = scanner.nextInt();
-        scanner.nextLine();
+            System.out.println("Enter Member age");
+            int age = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.println("Enter Member visit count");
-        int visitCount = scanner.nextInt();
-        scanner.nextLine();
+            System.out.println("Enter Member visit count");
+            int visitCount = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.println("Does he have membership? (true/false)");
-        Boolean membership = scanner.nextBoolean();
-        scanner.nextLine();
+            System.out.println("Does he have membership? (true/false)");
+            Boolean membership = scanner.nextBoolean();
+            scanner.nextLine();
 
-
-        Person person = new Member(personId, name, surname, age, visitCount,membership);
-
-        allPeople.add(person);
-        System.out.println("\n new Member added successfully!");
+            Member member = new Member(personId, name, surname, age, visitCount, membership);
+            allPeople.add(member);
+            System.out.println("\n new Member added successfully!");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     private void viewAllPeople() {
@@ -142,7 +149,7 @@ public class GymMenu implements Menu {
     }
 
     private void demonstrateWork() {
-        System.out.println("\n--- POLYMORPHISM: All Staff Working ---");
+        System.out.println("\n--- POLYMORPHISM: All People Working ---");
         for (Person p : allPeople) {
             p.work(); // Calls overridden method!
         }
