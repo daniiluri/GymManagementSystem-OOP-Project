@@ -69,9 +69,9 @@ public abstract class Person {
 
 
     // Methods to Override
-    abstract void work();
+    public abstract void work();
 
-    abstract String getRole();
+    public abstract String getRole();
 
     // Method
     public boolean isAdult(){
