@@ -85,12 +85,7 @@ public abstract class Person implements Live {
 
     // Methods
     public boolean isAdult(){
-        if (age >= 18) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return age >= 18;
     }
 
     @Override

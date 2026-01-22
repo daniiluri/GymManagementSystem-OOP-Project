@@ -26,7 +26,7 @@ public class Equipment {
             this.name = name;
         }
         else {
-            System.out.println("Warning: Name cannot be empty!");
+            throw  new IllegalArgumentException("Name cannot be empty");
         }
     }
 
@@ -39,7 +39,7 @@ public class Equipment {
             this.description = description;
         }
         else {
-            System.out.println("Warning: Description cannot be empty!");
+            throw   new IllegalArgumentException("Description cannot be empty");
         }
     }
 
@@ -52,7 +52,7 @@ public class Equipment {
             this.category = category;
         }
         else {
-            System.out.println("Warning: Category cannot be empty!");
+            throw   new IllegalArgumentException("Category cannot be empty");
         }
     }
 
@@ -65,8 +65,7 @@ public class Equipment {
             this.quantity = quantity;
         }
         else {
-            System.out.println("Quantity cannot be negative");
-            this.quantity = 0;
+            throw new IllegalArgumentException("Quantity cannot be negative");
         }
     }
 
@@ -83,7 +82,7 @@ public class Equipment {
             this.quantity += quantity;
         }
         else  {
-            System.out.println("Quantity must be positive");
+            throw new IllegalArgumentException("Quantity cannot be negative");
         }
     }
 
