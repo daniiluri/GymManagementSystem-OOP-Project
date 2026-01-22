@@ -1,6 +1,6 @@
-package com.Daniil.gym;
+package com.Daniil.gym.model;
 
-public class Trainer extends Person{
+public class Trainer extends Person {
     private int workExperience;
     private int trainedMembersCount;
 
@@ -19,8 +19,7 @@ public class Trainer extends Person{
             this.workExperience = workExperience;
         }
         else {
-            System.out.println("Warning: work experience cannot be negative! Setting to 0.");
-            this.workExperience = 0;
+            throw new IllegalArgumentException("Work experience cannot be negative");
         }
     }
 
@@ -33,8 +32,7 @@ public class Trainer extends Person{
             this.trainedMembersCount = trainedMembersCount;
         }
         else {
-            System.out.println("Warning: trained members count cannot be negative! Setting to 0.");
-            this.trainedMembersCount = 0;
+            throw new IllegalArgumentException("Trained members count cannot be negative");
         }
     }
 
@@ -43,7 +41,7 @@ public class Trainer extends Person{
     }
 
 
-    // Overriden methods of subclass
+    // Overridden methods of subclass
     @Override
     public void work() {
         System.out.println("Training people...");

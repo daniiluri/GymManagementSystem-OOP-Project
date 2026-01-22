@@ -1,6 +1,6 @@
-package com.Daniil.gym;
+package com.Daniil.gym.model;
 
-public class Member extends Person{
+public class Member extends Person {
     private int visitCount;
     private boolean activeMembership;
 
@@ -22,13 +22,12 @@ public class Member extends Person{
         return activeMembership;
     }
 
-    public void setVisitCount(int visitCount){
+    public void setVisitCount(int visitCount)   {
         if (visitCount >= 0){
             this.visitCount = visitCount;
         }
         else {
-            System.out.println("Invalid visit count");
-            this.visitCount = 0;
+            throw new IllegalArgumentException("Invalid visit count");
         }
     }
 
@@ -37,7 +36,7 @@ public class Member extends Person{
     }
 
 
-    // Overriden methods
+    // Overridden methods
     @Override
     public void work() {
         System.out.println("Doing exercises...");
@@ -51,10 +50,7 @@ public class Member extends Person{
 
     // Methods of subclass
     public boolean isRegular() {
-        if (visitCount > 50) {
-            return true;
-        }
-        return false;
+        return visitCount > 50;
     }
 
     public void buyMembership(){

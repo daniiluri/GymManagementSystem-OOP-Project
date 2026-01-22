@@ -1,4 +1,5 @@
-package com.Daniil.gym;
+package com.Daniil.gym.menu;
+
 import com.Daniil.gym.model.Member;
 import com.Daniil.gym.model.Person;
 import com.Daniil.gym.model.Trainer;
@@ -6,7 +7,7 @@ import com.Daniil.gym.model.Trainer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class GymMenu implements Menu {
     private static ArrayList<Person> allPeople = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -59,6 +60,7 @@ public class Main {
 
     }
 
+    @Override
     private static void displayMenu() {
         System.out.println("\n========================================");
         System.out.println("GYM SYSTEM");
@@ -73,7 +75,7 @@ public class Main {
         System.out.println("0. Exit");
         System.out.println("========================================");
         System.out.print("Enter your choice: ");
-    } 
+    }
 
     private static void addMember() {
         System.out.println("Enter Member id");
@@ -181,25 +183,6 @@ public class Main {
         }
     }
 
-    private static void addPerson() {
-        System.out.println("Enter Person id");
-        int personId = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.println("Enter Person name");
-        String name = scanner.nextLine();
-
-        System.out.println("Enter Person surname");
-        String surname = scanner.nextLine();
-
-        System.out.println("Enter Person age");
-        int age = scanner.nextInt();
-        scanner.nextLine();
-
-
-        System.out.println("\n new Person added successfully!");
-    }
-
     private static void viewAllPeople() {
         System.out.println("\n========================================");
         System.out.println(" ALL PEOPLE (POLYMORPHIC LIST)");
@@ -245,3 +228,4 @@ public class Main {
         System.out.println(" This is POLYMORPHISM in action!");
     } //Make All People Work
 }
+

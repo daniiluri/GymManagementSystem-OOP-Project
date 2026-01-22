@@ -1,4 +1,4 @@
-package com.Daniil.gym;
+package com.Daniil.gym.model;
 
 public abstract class Person {
     protected int personId;
@@ -18,6 +18,9 @@ public abstract class Person {
 
     //Getters and Setters of superclass
     public void setPersonId(int personId) {
+        if (personId < 0) {
+            throw new IllegalArgumentException("Person ID cannot be negative");
+        }
         this.personId = personId;
     }
 
@@ -30,8 +33,7 @@ public abstract class Person {
             this.name = name;
         }
         else{
-            System.out.println("Warning: Name cannot be empty!");
-            this.name = "Unknown";
+            System.out.println("Name cannot be empty!");
         }
     }
 
@@ -44,8 +46,7 @@ public abstract class Person {
             this.surname = surname;
         }
         else {
-            System.out.println("Warning: Surname cannot be empty!");
-            this.surname = "Unknown";
+            throw new IllegalArgumentException("Surname cannot be empty!");
         }
     }
 
@@ -58,8 +59,7 @@ public abstract class Person {
             this.age = age;
         }
         else {
-            System.out.println("Warning: Invalid age");
-            this.age = 0;
+            throw new IllegalArgumentException("Age cannot be negative!");
         }
     }
 
@@ -69,14 +69,11 @@ public abstract class Person {
 
 
     // Methods to Override
-    abstract void work() {
-        System.out.println("Working...");
-    }
+    abstract void work();
 
-    public String getRole() {
-        return "Person";
-    }
+    abstract String getRole();
 
+    // Method
     public boolean isAdult(){
         if (age >= 18) {
             return true;
