@@ -5,6 +5,7 @@ import com.Daniil.gym.model.Person;
 import com.Daniil.gym.model.Trainer;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GymMenu implements Menu {
@@ -48,7 +49,6 @@ public class GymMenu implements Menu {
             }
         }
         scanner.close();
-
     }
 
     private void addTrainer() {
@@ -88,25 +88,25 @@ public class GymMenu implements Menu {
 
     private void addMember() {
         try {
-            System.out.println("Enter Member id");
+            System.out.print("Enter Member id: ");
             int personId = scanner.nextInt();
             scanner.nextLine();
 
-            System.out.println("Enter Member name");
+            System.out.print("Enter Member name: ");
             String name = scanner.nextLine();
 
-            System.out.println("Enter Member surname");
+            System.out.print("Enter Member surname: ");
             String surname = scanner.nextLine();
 
-            System.out.println("Enter Member age");
+            System.out.print("Enter Member age: ");
             int age = scanner.nextInt();
             scanner.nextLine();
 
-            System.out.println("Enter Member visit count");
+            System.out.print("Enter Member visit count: ");
             int visitCount = scanner.nextInt();
             scanner.nextLine();
 
-            System.out.println("Does he have membership? (true/false)");
+            System.out.print("Does he have membership? (true/false): ");
             Boolean membership = scanner.nextBoolean();
             scanner.nextLine();
 
@@ -130,18 +130,18 @@ public class GymMenu implements Menu {
         System.out.println();
         for (int i = 0; i < allPeople.size(); i++) {
             Person p = allPeople.get(i);
-            System.out.println((i + 1) + ". " + p);
+            System.out.print((i + 1) + ". " + p);
 
             if (p instanceof Member) {
                 Member member = (Member) p; // Downcast
                 if (member.isRegular()) {
-                    System.out.println(" is Regular Member");
+                    System.out.print(" is Regular Member");
                 }
 
             } else if (p instanceof Trainer) {
                 Trainer trainer = (Trainer) p; // Downcast
                 if (trainer.isExperienced()) {
-                    System.out.println(" is Experienced!");
+                    System.out.print(" is Experienced!");
                 }
             }
             System.out.println();
