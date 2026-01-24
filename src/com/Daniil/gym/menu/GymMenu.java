@@ -16,7 +16,7 @@ public class GymMenu implements Menu {
     @Override
     public void displayMenu() {
         System.out.println("\n========================================");
-        System.out.println(" RESTAURANT MANAGEMENT SYSTEM");
+        System.out.println(" GYM MANAGEMENT SYSTEM");
         System.out.println("========================================");
         System.out.println("1. Add Trainer");
         System.out.println("2. Add Member");
